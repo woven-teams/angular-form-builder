@@ -1,0 +1,97 @@
+﻿
+@{
+	ViewData["Title"] = "Create";
+}
+
+
+<div ng-controller="CreateFormController">
+
+	<div class="row">
+		<h1>Form Builder</h1>
+		<hr>
+
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<h3 class="panel-title pull-left" style="padding-top: 7.5px;">
+						<input type="text" ng-model="formName" ng-init="formName='Form 1'" />
+
+					</h3>
+					<div class="dropdown pull-right">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+							Add Control
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li>
+								<a ng-click="addComponent('input')">Text Input</a>
+							</li>
+							<li>
+								<a ng-click="addComponent('textarea')">Text Area</a>
+							</li>
+							<li>
+								<a ng-click="addComponent('checkbox')">Checkbox</a>
+							</li>
+							<li>
+								<a ng-click="addComponent('radio')">Radio</a>
+							</li>
+							<li>
+								<a ng-click="addComponent('select')">Select</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div fb-builder="default"></div>
+				<div class="panel-footer">
+					<div class="row">
+						<button ng-click="createForm()" class="btn btn-default" type="button">
+							Create Form
+						</button>
+					</div>
+					<div class="row" ng-if="isSuccess">
+						<table>
+							<thead>
+								<tr>
+									<th colspan="2">Created Successfull</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Form Url: </td>
+									<td>
+										<pre>{{formUrl}}</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>Answer List (Secret Url): </td>
+									<td>
+										<pre>{{answerListUrl}}</pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<h3 class="panel-title pull-left">Form Components</h3>
+					<div class="dropdown pull-right">
+						<input type="checkbox" ng-model="isShowComponents" ng-init="isShowComponents=false" /> Show Components
+					</div>
+				</div>
+				<div ng-show="isShowComponents" fb-components></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-12 footer"></div>
+	</div>
+
+</div>
