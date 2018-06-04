@@ -1,5 +1,5 @@
 var baseUrl = 'http://localhost:51469/';
-var baseApiUrl = 'http://localhost:50731/api/v1';
+var baseApiUrl = 'http://localhost:50730/api/v1';
 var config = {
     headers: {
         'Content-Type': 'application/json'
