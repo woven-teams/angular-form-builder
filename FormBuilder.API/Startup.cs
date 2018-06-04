@@ -27,6 +27,7 @@ namespace FormBuilder.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRepository(Configuration.GetConnectionString("FormBuilderConnectionString"));
+            services.AddTransient<DbInitializer>();
             services.AddDataServices();
             services.AddCors();
             services.AddSwaggerGen(options =>
@@ -37,11 +38,14 @@ namespace FormBuilder.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, , DbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                dbInitializer.Migrate();
+                dbInitializer.Seed();
             }
             app.UseSwagger();
 
