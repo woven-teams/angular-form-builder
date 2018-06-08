@@ -12,9 +12,12 @@
 4. Run the Web + API configuration. It should automatically migrate and seed
    your Postgres database.
 
+You can also use [dotnet-cli](https://github.com/dotnet/cli) if you prefer a CLI
+to Visual Studio.
+
 **If you are running Visual Studio on Mac or Linux**: Change the `baseApiUrl`
-port from `50730` to `50731`. On Windows, Visual Studio proxies requests on
-port `50730` via IIS Express to `50731`.
+port in `FormBuilder.Web/wwwroot/js/app.js` from `50730` to `50731`. On Windows,
+Visual Studio proxies requests on port `50730` via IIS Express to `50731`.
 
 ## Built With
 
