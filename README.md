@@ -19,6 +19,24 @@ to Visual Studio.
 port in `FormBuilder.Web/wwwroot/js/app.js` from `50730` to `50731`. On Windows,
 Visual Studio proxies requests on port `50730` via IIS Express to `50731`.
 
+## Run configuration
+
+### Windows
+
+1.  Right click on the top-level Solution (not a folder/Project) and select "Properties"
+2.  Under Common Properties > Startup Project, select "Multiple Startup Projects"
+3.  For `FormBuilder.API` and `FormBuilder.Web`, change the Action to "Start"
+
+### MacOS
+
+1.  Right click on the top-level Solution (not a folder/Project) and select "Options"
+2.  Under Run > Configurations, create a new configuration
+3.  Double click the new configuration. Check `FormBuilder.API` and `FormBuilder.Web`
+
+### Linux
+
+Run configurations have not been tested on Linux, but they should be similar to MacOS. Let us know if you are completing this exercise on a Linux machine and we will help you get set up.
+
 ## Built With
 
 * [.NET Core 2.0](https://www.microsoft.com/net/)
